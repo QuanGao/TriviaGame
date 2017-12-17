@@ -1,0 +1,35 @@
+ body {
+    background: url(../images/6.png) no-repeat center;
+    height: 100%;
+    text-align: center;
+} 
+
+.start{
+    border: 4px solid grey;
+    background: black;
+    color: white;
+    width: 40%;
+    margin: 10px auto;
+    padding: 12px 0px 3px 0px;
+    font-family: fantasy;
+}
+.start:hover{
+    color: red;
+}
+.brothers{
+    max-width: 50%;
+    max-height: 50%;
+}
+.center{
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 600px;   
+} 
+
+.playground{ 
+    background-color: rgba(192,192,192,0.7);
+    height: 80%;
+} 
