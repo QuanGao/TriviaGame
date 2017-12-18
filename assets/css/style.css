@@ -3,22 +3,22 @@
     height: 100%;
     text-align: center;
 } 
-
-.start{
+h1 {
     border: 4px solid grey;
     background: black;
     color: white;
-    width: 40%;
-    margin: 10px auto;
+    max-width: 50%;
+    margin: 20px auto;
     padding: 12px 0px 3px 0px;
     font-family: fantasy;
 }
 .start:hover{
     color: red;
+    cursor: pointer;
 }
 .brothers{
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 92%;
+    max-height: 92%;
 }
 .center{
     min-height: 100%;
@@ -26,10 +26,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 600px;   
+    height: 650px;   
 } 
-
 .playground{ 
     background-color: rgba(192,192,192,0.7);
-    height: 80%;
-} 
+    height: 90%;
+}
+/* .display{
+
+} */
