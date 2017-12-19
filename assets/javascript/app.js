@@ -30,7 +30,47 @@ $(document).ready(function(){
                 {content: "www.bustyasianbeauties.com", fact: "right" },
             ],
             ImgSrc: "assets/images/Q3.jpg"
-        },       
+        },
+        { 
+            Q: "What animal set Dean screaming when investigating an abandant mill in the season 4 episode 'Yellow Fever'?",
+            A: [
+                {content: "A Cat", fact: "right" },
+                {content: "A Puppy", fact: "wrong" },
+                {content: "A Bear", fact: "wrong" },
+                {content: "A Deer", fact: "wrong" },
+            ],
+            ImgSrc: "assets/images/Q4.gif"
+        },
+        { 
+            Q: "What's the name of the episode where Sam switched body with a teenage boy in season 5?",
+            A: [
+                {content: "Free To Be You And Me", fact: "right" },
+                {content: "Sam, Interrupted", fact: "wrong" },
+                {content: "Changing Channels", fact: "wrong" },
+                {content: "Swap Meat", fact: "right" },
+            ],
+            ImgSrc: "assets/images/Q5.gif"
+        },  
+        { 
+            Q: "Which superhero Dean likes to claim himself to be?",
+            A: [
+                {content: "Superman", fact: "wrong" },
+                {content: "Batman", fact: "right" },
+                {content: "Spiderman", fact: "wrong" },
+                {content: "Packman", fact: "wrong" },
+            ],
+            ImgSrc: "assets/images/Q6.gif"
+        }, 
+        { 
+            Q: "Sam is the intended vessel of what Biblical figure?",
+            A: [
+                {content: "Michael", fact: "wrong" },
+                {content: "Gabriel", fact: "wrong" },
+                {content: "Lucifer", fact: "right" },
+                {content: "God himself", fact: "wrong" },
+            ],
+            ImgSrc: "assets/images/Q7.gif"
+        },      
         { 
             Q: "What does Dean call their car?",
             A: [
@@ -131,13 +171,19 @@ $(document).ready(function(){
     };
 
     var restart = function(){
+        $(".summary").hide();
         $(".brothers").show();
         $("h1").addClass("start");
         $("h1").text("Start Trivia Game");
     };
 
     var onComplete = function(){
-        
+        $(".reveal").hide();
+        $(".summary").show();
+        $(".alldone").text("All done, here's how you did!");
+        $(".score").append(`<li>Correct Answers: ${correctCounter}</li>`).
+        append(`<li>Incorrect Answers: ${wrongCounter}</li>`).
+        append(`<li>Unanswered: ${unansweredCounter}</li>`)
     }
 
     $(".playground").on("click", ".start",function(){  
