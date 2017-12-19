@@ -26,10 +26,10 @@ $(document).ready(function(){
             A: [
                 {content: "www.topdeanbottomsamftw.com", fact: "wrong" },
                 {content: "www.finestfantasy.com", fact: "wrong" },
-                {content: "www.beautyandthefeast.com", fact: "right" },
+                {content: "www.beautyandthefeast.com", fact: "wrong" },
                 {content: "www.bustyasianbeauties.com", fact: "right" },
             ],
-            ImgSrc: "assets/images/Q3.gif"
+            ImgSrc: "assets/images/Q3.jpg"
         },       
         { 
             Q: "What does Dean call their car?",
@@ -43,39 +43,23 @@ $(document).ready(function(){
         }
         
     ]
-
     var intervalID;
     var timerRunning;
-    var n = 1;
+    var n = 0;
+    var correctCounter = 0;
+    var wrongCounter = 0;
+    var unansweredCounter = 0;
     var timer = {
         time: 10,
         count: function(){
-            var correctAnswer = $("li[data-fact='right']");
-            if(timer.time > 0){
+            if(timer.time <=0){
+                timer.stop();
+                $(".display").html(`<h2>Time Remaining: 0 seconds </h2>`);
+                onRunOutTime();        
+            } else {
                 timer.time--;
                 $(".display").html(`<h2>Time Remaining: ${timer.time} seconds </h2>`);
-                $(".options").on("click","li", function(){
-                    var choice = $(this);
-                    timer.stop();
-                    $(".quiz").hide();
-                    if(choice.attr("data-fact") === "right"){
-                        $(".judge").text("That's right!")
-                    } else {
-                        $(".judge").text("You are so wrong!");
-                        $(".correctA").text(`The correct answer is: ${correctAnswer.attr("data-content")}`)
-                    } 
-                    var imagesource = $(".quiz").attr("data-source")
-                    $(".pics").attr("src", imagesource);
-                })
-            } else {
-                timer.stop();
-                $(".quiz").hide();  
-                $(".judge").text("You ran out of time!");
-                $(".correctA").text(`The correct answer is: ${correctAnswer.attr("data-content")}`)              
-                var imagesource = $(".quiz").attr("data-source")
-                $(".pics").attr("src", imagesource);
-                
-            }        
+            }
         },
         reset: function(){
             timer.time = 10;
@@ -93,7 +77,37 @@ $(document).ready(function(){
             timerRunning = false;
         }
     }
- 
+    var displayPics = function(){
+        var imagesource = $(".quiz").attr("data-source")
+        $(".pics").attr("src", imagesource);    
+    }
+    var displayCorrectChoice = function(){
+        var correctAnswer = $("li[data-fact='right']");
+        $(".correctA").text(`The correct answer is: ${correctAnswer.attr("data-content")}`) 
+    }
+    var onRunOutTime = function(){
+        $(".quiz").hide();  
+        $(".judge").text("You ran out of time!");
+        displayCorrectChoice();     
+        displayPics();
+        goToNextQuestion();
+        unansweredCounter++;
+    }
+    var onChoose = function(){
+        timer.stop();
+        $(".quiz").hide();
+        $(".reveal").show();
+        displayPics();
+    }
+    var onWrongAnswer = function(){
+        $(".judge").text("You are so wrong!");
+        displayCorrectChoice();
+        wrongCounter++;  
+    }
+    var onRightAnswer = function(){
+        $(".judge").text("That's right!");
+        correctCounter++;
+    }
     var askNewQuestion = function(i){
         var q = sets[i];
         $(".question").html(`<span>${q.Q}</span>`);
@@ -105,6 +119,26 @@ $(document).ready(function(){
             answerList.eq(i).attr("data-content",q.A[i].content);
         };
     }
+    var goToNextQuestion = function(){
+        n = n + 1;
+        setTimeout(function(){
+            $(".reveal").hide();
+            $(".quiz").show();
+            askNewQuestion(n);
+            timer.reset();
+            timer.start();
+        }, 4000);
+    };
+
+    var restart = function(){
+        $(".brothers").show();
+        $("h1").addClass("start");
+        $("h1").text("Start Trivia Game");
+    };
+
+    var onComplete = function(){
+        
+    }
 
     $(".playground").on("click", ".start",function(){  
         $(".brothers").hide();
@@ -112,32 +146,25 @@ $(document).ready(function(){
         $("h1").text("Supernatural Trivia");
         timer.reset();
         timer.start();
-        askNewQuestion(0);
-      
+        askNewQuestion(n);    
     });
 
-    // $(".options").on("click","li", function(){
-    //     var choice = $(this);
-    //     var correctAnswer = $("li[data-fact='right']");
-    //     console.log(correctAnswer)
-    //     timer.stop();
-    //     $(".quiz").hide();
-    //     if(choice.attr("data-fact") === "right"){
-    //         $(".judge").text("That's right!")
-    //     } else {
-    //         $(".judge").text("You are so wrong!");
-    //         $(".correctA").text(`The correct answer is: ${correctAnswer.attr("data-content")}`)
-    //     } 
-    //     var imagesource = $(".quiz").attr("data-source")
-    //     $(".pics").attr("src", imagesource);
-        // setTimeout(function(){
-        //     askNewQuestion(1);
-        //     $(".reveal").hide();
-        //     $(".judge").hide();
-        //     $(".quiz").show();
-        // },2000)
-        // n++;    
-    // })
+    $(".options").on("click","li", function(){    
+        if(timerRunning){
+            onChoose();
+            if($(this).attr("data-fact") === "right"){
+                onRightAnswer();
+            } else {
+                onWrongAnswer();
+            } 
+            goToNextQuestion();
+        } 
+    })
+ 
+
+
+    
+ 
     
 
 
