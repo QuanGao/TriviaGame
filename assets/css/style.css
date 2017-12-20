@@ -46,7 +46,9 @@ h1 {
 span{
     border-bottom: 1px solid black;
 }
-
+ul{
+  list-style: none;
+}
 li {
     font-size: 30px;
     line-height: 2em;

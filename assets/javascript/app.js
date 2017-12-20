@@ -109,7 +109,7 @@ $(document).ready(function(){
     var wrongCounter = 0;
     var unansweredCounter = 0;
     var timer = {
-        time: 10,
+        time: 5,
         count: function(){
             if(timer.time <=0){
                 timer.stop();
@@ -121,7 +121,7 @@ $(document).ready(function(){
             }
         },
         reset: function(){
-            timer.time = 10;
+            timer.time = 5;
             $(".display").html(`<h2>Time Remaining: ${timer.time} seconds </h2>`);
             timerRunning = false;
         },
@@ -145,7 +145,8 @@ $(document).ready(function(){
         $(".correctA").text(`The correct answer is: ${correctAnswer.attr("data-content")}`) 
     }
     var onRunOutTime = function(){
-        $(".quiz").hide();  
+        $(".quiz").hide();
+        $(".reveal").show();  
         $(".judge").text("You ran out of time!");
         displayCorrectChoice();     
         displayPics();
@@ -204,14 +205,14 @@ $(document).ready(function(){
     var onComplete = function(){
         $(".reveal").hide();
         $(".summary").show();
-        $(".alldone").text("All done, here's how you did!");
+        $(".alldone").html("<h2>All done, here's how you did!</h2>");
         $(".score").append(`<li>Correct Answers: ${correctCounter}</li>`).
         append(`<li>Incorrect Answers: ${wrongCounter}</li>`).
         append(`<li>Unanswered: ${unansweredCounter}</li>`);
         var restartButton = $("<h2 class = 'startOver'>");
-        restartButton.text("tart Over?");
+        restartButton.text("start Over?");
         $(".score").append(restartButton);
-        $(".summary").on("click", ".startOver", restart());
+        $(".summary").on("click", ".startOver", restart);
     }
 
     $(".playground").on("click", ".start",function(){  
