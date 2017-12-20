@@ -58,6 +58,11 @@ li:hover{
     background: grey;
     cursor: default;
 }
+
+.restartButton:hover{
+    background: grey;
+    cursor: default;
+}
 .correctA{
     font-size: 20px;
 }

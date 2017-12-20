@@ -44,7 +44,7 @@ $(document).ready(function(){
         { 
             Q: "What's the name of the episode where Sam switched body with a teenage boy in season 5?",
             A: [
-                {content: "Free To Be You And Me", fact: "right" },
+                {content: "Free To Be You And Me", fact: "wrong" },
                 {content: "Sam, Interrupted", fact: "wrong" },
                 {content: "Changing Channels", fact: "wrong" },
                 {content: "Swap Meat", fact: "right" },
@@ -80,8 +80,27 @@ $(document).ready(function(){
                 {content: "Sweetie", fact: "wrong" },
             ],
             ImgSrc: "assets/images/Q8.gif"
-        }
-        
+        },      
+        { 
+            Q: "Which town does Bobby Singer live nearby?",
+            A: [
+                {content: "Sioux Falls", fact: "right" },
+                {content: "Niagara Falls", fact: "wrong" },
+                {content: "Free Falls", fact: "wrong" },
+                {content: "Everything Falls", fact: "wrong" },
+            ],
+            ImgSrc: "assets/images/Q9.gif"
+        },      
+        { 
+            Q: "Who serves as the human vessel for Castiel and what is his profession?",
+            A: [
+                {content: "Joseph Christiansen-Dreamdaddy", fact: "wrong" },
+                {content: "Jimmy Novak-Accountant", fact: "right" },
+                {content: "Jeremy Noah-Singer", fact: "wrong" },
+                {content: "John Wick-Doglover", fact: "wrong" },
+            ],
+            ImgSrc: "assets/images/Q10.gif"
+        }       
     ]
     var intervalID;
     var timerRunning;
@@ -145,6 +164,7 @@ $(document).ready(function(){
         wrongCounter++;  
     }
     var onRightAnswer = function(){
+        $(".correctA").empty();
         $(".judge").text("That's right!");
         correctCounter++;
     }
@@ -161,13 +181,17 @@ $(document).ready(function(){
     }
     var goToNextQuestion = function(){
         n = n + 1;
-        setTimeout(function(){
-            $(".reveal").hide();
-            $(".quiz").show();
-            askNewQuestion(n);
-            timer.reset();
-            timer.start();
-        }, 4000);
+        if(n < 10){
+            setTimeout(function(){
+                $(".reveal").hide();
+                $(".quiz").show();
+                askNewQuestion(n);
+                timer.reset();
+                timer.start();
+            }, 4000);
+        } else{
+            onComplete();
+        }
     };
 
     var restart = function(){
@@ -183,7 +207,11 @@ $(document).ready(function(){
         $(".alldone").text("All done, here's how you did!");
         $(".score").append(`<li>Correct Answers: ${correctCounter}</li>`).
         append(`<li>Incorrect Answers: ${wrongCounter}</li>`).
-        append(`<li>Unanswered: ${unansweredCounter}</li>`)
+        append(`<li>Unanswered: ${unansweredCounter}</li>`);
+        var restartButton = $("<h2 class = 'startOver'>");
+        restartButton.text("tart Over?");
+        $(".score").append(restartButton);
+        $(".summary").on("click", ".startOver", restart());
     }
 
     $(".playground").on("click", ".start",function(){  
