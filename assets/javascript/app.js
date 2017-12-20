@@ -94,7 +94,7 @@ $(document).ready(function(){
         { 
             Q: "Who serves as the human vessel for Castiel and what is his profession?",
             A: [
-                {content: "Joseph Christiansen-Dreamdaddy", fact: "wrong" },
+                {content: "Joseph Christian-Daddy", fact: "wrong" },
                 {content: "Jimmy Novak-Accountant", fact: "right" },
                 {content: "Jeremy Noah-Singer", fact: "wrong" },
                 {content: "John Wick-Doglover", fact: "wrong" },
@@ -109,7 +109,7 @@ $(document).ready(function(){
     var wrongCounter = 0;
     var unansweredCounter = 0;
     var timer = {
-        time: 5,
+        time: 10,
         count: function(){
             if(timer.time <=0){
                 timer.stop();
@@ -121,7 +121,7 @@ $(document).ready(function(){
             }
         },
         reset: function(){
-            timer.time = 5;
+            timer.time = 10;
             $(".display").html(`<h2>Time Remaining: ${timer.time} seconds </h2>`);
             timerRunning = false;
         },
