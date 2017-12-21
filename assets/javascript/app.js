@@ -198,7 +198,7 @@ $(document).ready(function(){
             askNewQuestion(n);
             timer.reset();
             timer.start();
-        }, 1000);
+        }, 5000);
     };
     var restart = function(){
         resetParameters();
