@@ -104,12 +104,18 @@ $(document).ready(function(){
     ]
     var intervalID;
     var timerRunning;
-    var n = 0;
-    var correctCounter = 0;
-    var wrongCounter = 0;
-    var unansweredCounter = 0;
+    var n;
+    var correctCounter;
+    var wrongCounter;
+    var unansweredCounter;
+    var resetParameters = function(){
+        n = 0;
+        correctCounter = 0;
+        wrongCounter = 0;
+        unansweredCounter = 0;
+    }
     var timer = {
-        time: 2,
+        time: 30,
         count: function(){
             if(timer.time <=0){
                 timer.stop();
@@ -121,7 +127,7 @@ $(document).ready(function(){
             }
         },
         reset: function(){
-            timer.time = 2;
+            timer.time = 30;
             $(".display").html(`<h2>Time Remaining: ${timer.time} seconds </h2>`);
             timerRunning = false;
         },
@@ -194,17 +200,15 @@ $(document).ready(function(){
             timer.start();
         }, 1000);
     };
-
     var restart = function(){
-        n = 0;
-        correctCounter = 0;
-        wrongCounter = 0;
-        unansweredCounter = 0;
+        resetParameters();
         $(".alldone").empty();
         $(".score").empty();
-        $(".brothers").show();
-        $("h1").attr("class","start");
-        $("h1").text("Start Trivia Game");
+        timer.reset();
+        timer.start();
+        askNewQuestion(n);
+        $(".quiz").show();  
+        
     };
     var onComplete = function(){
         $(".reveal").hide();
@@ -220,17 +224,20 @@ $(document).ready(function(){
             console.log("startover licked");
             restart();});
     };
-    
-    $(".playground").on("click", ".start",function(){  
-        $(".brothers").hide();
-        $("h1").removeClass("start");
-        $("h1").text("Supernatural Trivia");
-        timer.reset();
-        timer.start();
-        askNewQuestion(n);
-        $(".quiz").show();    
-    });
-    
+    var start = function(){
+        resetParameters();
+        $(".playground").on("click", ".start",function(){  
+            $(".brothers").hide();
+            $("h1").removeClass("start");
+            $("h1").text("Supernatural Trivia");
+            timer.reset();
+            timer.start();
+            askNewQuestion(n);
+            $(".quiz").show();    
+        });
+    };
+
+    start();
     $(".options").on("click","li", function(){    
         if(timerRunning){
             onChoose();
