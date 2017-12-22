@@ -152,10 +152,10 @@ $(document).ready(function(){
     };
     var onRunOutTime = function(){
         $(".quiz").hide();
-        $(".reveal").show();  
         $(".judge").text("You ran out of time!");
         displayCorrectChoice();     
         displayPics();
+        $(".reveal").show();  
         unansweredCounter++;
         if(n < 9){
             goToNextQuestion();
@@ -166,8 +166,8 @@ $(document).ready(function(){
     var onChoose = function(){
         timer.stop();
         $(".quiz").hide();
-        $(".reveal").show();
         displayPics();
+        $(".reveal").show();
     };
     var onWrongAnswer = function(){
         $(".judge").text("You are so wrong!");
@@ -194,10 +194,10 @@ $(document).ready(function(){
         n = n + 1;   
         setTimeout(function(){
             $(".reveal").hide();
-            $(".quiz").show();
             askNewQuestion(n);
             timer.reset();
             timer.start();
+            $(".quiz").show();
         }, 5000);
     };
     var restart = function(){
