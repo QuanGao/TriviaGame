@@ -8,7 +8,7 @@ h1 {
     border: 4px solid grey;
     background: black;
     color: white;
-    max-width: 50%;
+    max-width: 400px;
     margin: 30px auto;
     padding: 12px 0px 3px 0px;
     font-family: fantasy;
@@ -36,28 +36,29 @@ h1 {
 }
 .quiz {
     width: 80%;
-    margin: 0px auto;
-   
+    margin: 0px auto;   
 }
+
 .question{
-    line-height: 1.5em;
     font-style: italic;
     font-weight: bold;
+    font-size: 24px;
+    line-height: 1.5em;
+}
+li {
+    font-size: 20px;
+    line-height: 2em;
+    margin: 0px auto;
 }
 span{
     border-bottom: 1px solid black;
 }
 ul{
-  list-style: none;
-}
-li {
-    font-size: 30px;
-    line-height: 2em;
-    width: 70%;
-    margin: 0px auto;   
+    list-style: none;
+   
 }
 
-li:hover{
+.options li:hover{
     background: grey;
     cursor: default;
 }
@@ -74,4 +75,14 @@ li:hover{
     margin-top: 10px;
     max-height: 300px;
     min-height: 200px;
+    max-width: 100%;
+}
+
+@media only screen and (min-width: 640px) { 
+    .question{
+        font-size: 30px;
+    }
+    li {
+        font-size: 30px;
+    }
 }
