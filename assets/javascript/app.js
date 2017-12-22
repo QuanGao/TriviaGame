@@ -151,10 +151,10 @@ $(document).ready(function(){
         $(".correctA").text(`The correct answer is: ${correctAnswer.attr("data-content")}`) 
     };
     var onRunOutTime = function(){
-        $(".quiz").hide();
         $(".judge").text("You ran out of time!");
         displayCorrectChoice();     
         displayPics();
+        $(".quiz").hide();
         $(".reveal").show();  
         unansweredCounter++;
         if(n < 9){
@@ -165,9 +165,8 @@ $(document).ready(function(){
     };
     var onChoose = function(){
         timer.stop();
-        $(".quiz").hide();
         displayPics();
-        $(".reveal").show();
+        $(".quiz").hide();
     };
     var onWrongAnswer = function(){
         $(".judge").text("You are so wrong!");
@@ -223,7 +222,7 @@ $(document).ready(function(){
         append(`<li>Incorrect Answers: ${wrongCounter}</li>`).
         append(`<li>Unanswered: ${unansweredCounter}</li>`).append(restartButton);
         $(".startOver").on("click",function(){
-            console.log("startover licked");
+            console.log("startover clicked");
             restart();});
     };
     var start = function(){
@@ -248,6 +247,7 @@ $(document).ready(function(){
             } else {
                 onWrongAnswer();
             };
+            $(".reveal").show();
         };
         if(n < 9){
             goToNextQuestion();

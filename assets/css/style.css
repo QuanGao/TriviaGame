@@ -42,6 +42,7 @@ h1 {
 .question{
     line-height: 1.5em;
     font-style: italic;
+    font-weight: bold;
 }
 span{
     border-bottom: 1px solid black;
