@@ -193,7 +193,7 @@ $(document).ready(function(){
         n = n + 1;   
         setTimeout(function(){
             $(".reveal").hide();
-            $(".pics").empty();    
+            $(".pics").attr("src",""); 
             askNewQuestion(n);
             timer.reset();
             timer.start();
@@ -210,20 +210,25 @@ $(document).ready(function(){
         $(".quiz").show();  
         
     };
-    var onComplete = function(){
-        $(".pics").empty();
-        $(".reveal").hide();
-        $(".summary").show();
-        $(".alldone").html("<h2>All done, here's how you did!</h2>");
+    var addRestartButton = function(){
         var restartButton = $("<li>");
         restartButton.addClass("startOver");
         restartButton.text("Start Over?");
-        $(".score").append(`<li>Correct Answers: ${correctCounter}</li>`).
-        append(`<li>Incorrect Answers: ${wrongCounter}</li>`).
-        append(`<li>Unanswered: ${unansweredCounter}</li>`).append(restartButton);
+        $(".score").append(restartButton);
         $(".startOver").on("click",function(){
             console.log("startover clicked");
             restart();});
+    };
+    var onComplete = function(){
+        setTimeout(function(){
+            $(".reveal").hide();
+            $(".pics").attr("src","");
+            $(".summary").show();
+            $(".alldone").html("<h2>All done, here's how you did!</h2>");
+            $(".score").append(`<li>Correct Answers: ${correctCounter}</li>`).
+            append(`<li>Incorrect Answers: ${wrongCounter}</li>`).
+            append(`<li>Unanswered: ${unansweredCounter}</li>`);
+            addRestartButton();},5000);
     };
     var start = function(){
         resetParameters();
