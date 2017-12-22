@@ -194,6 +194,7 @@ $(document).ready(function(){
         n = n + 1;   
         setTimeout(function(){
             $(".reveal").hide();
+            $(".pics").empty();    
             askNewQuestion(n);
             timer.reset();
             timer.start();
@@ -211,6 +212,7 @@ $(document).ready(function(){
         
     };
     var onComplete = function(){
+        $(".pics").empty();
         $(".reveal").hide();
         $(".summary").show();
         $(".alldone").html("<h2>All done, here's how you did!</h2>");
