@@ -4,102 +4,102 @@ $(document).ready(function(){
         { 
             Q: "1.  What is the make, model and year of the car that Dean and Sam drive?",
             A: [
-                {content: "1967 Chevy Impala", fact: "right" },
-                {content: "1977 Chevy Alpaca", fact: "wrong" },
-                {content: "1957 Chevy Llama", fact: "wrong" },
-                {content: "1987 Chevy Kangaroo", fact: "wrong" },
+                {content: "1967 Chevy Impala", fact: true },
+                {content: "1977 Chevy Alpaca", fact: false },
+                {content: "1957 Chevy Llama", fact: false },
+                {content: "1987 Chevy Kangaroo", fact: false },
             ],
-            ImgSrc: "assets/images/Q1.gif"
+            imgSrc: "assets/images/Q1.gif"
         },
         { 
             Q: "2.  What is Dean's favorite dessert?",
             A: [
-                {content: "Cake", fact: "wrong" },
-                {content: "Pie", fact: "right" },
-                {content: "Ice Cream", fact: "wrong" },
-                {content: "Cookies", fact: "wrong" },
+                {content: "Cake", fact: false },
+                {content: "Pie", fact: true },
+                {content: "Ice Cream", fact: false },
+                {content: "Cookies", fact: false },
             ],
-            ImgSrc: "assets/images/Q2.gif"
+            imgSrc: "assets/images/Q2.gif"
         },
         { 
             Q: "3.  What website is Sam's computer frozen on in the season 2 episode 'Tall Tales'?",
             A: [
-                {content: "www.topdeanbottomsamftw.com", fact: "wrong" },
-                {content: "www.finestfantasy.com", fact: "wrong" },
-                {content: "www.beautyandthefeast.com", fact: "wrong" },
-                {content: "www.bustyasianbeauties.com", fact: "right" },
+                {content: "www.topdeanbottomsamftw.com", fact: false },
+                {content: "www.finestfantasy.com", fact: false },
+                {content: "www.beautyandthefeast.com", fact: false },
+                {content: "www.bustyasianbeauties.com", fact: true},
             ],
-            ImgSrc: "assets/images/Q3.jpg"
+            imgSrc: "assets/images/Q3.jpg"
         },
         { 
             Q: "4.  What animal set Dean kicking & screaming when investigating an abandant mill in the season 4 episode 'Yellow Fever'?",
             A: [
-                {content: "A Cat", fact: "right" },
-                {content: "A Puppy", fact: "wrong" },
-                {content: "A Bear", fact: "wrong" },
-                {content: "A Deer", fact: "wrong" },
+                {content: "A Cat", fact: true},
+                {content: "A Puppy", fact: false },
+                {content: "A Bear", fact: false },
+                {content: "A Deer", fact: false },
             ],
-            ImgSrc: "assets/images/Q4.gif"
+            imgSrc: "assets/images/Q4.gif"
         },
         { 
             Q: "5.  What's the name of the episode where Sam switched body with a teenage boy in season 5?",
             A: [
-                {content: "Free To Be You And Me", fact: "wrong" },
-                {content: "Sam, Interrupted", fact: "wrong" },
-                {content: "Changing Channels", fact: "wrong" },
-                {content: "Swap Meat", fact: "right" },
+                {content: "Free To Be You And Me", fact: false },
+                {content: "Sam, Interrupted", fact: false },
+                {content: "Changing Channels", fact: false },
+                {content: "Swap Meat", fact: true },
             ],
-            ImgSrc: "assets/images/Q5.gif"
+            imgSrc: "assets/images/Q5.gif"
         },  
         { 
             Q: "6.  Which superhero Dean likes to claim himself to be?",
             A: [
-                {content: "Superman", fact: "wrong" },
-                {content: "Batman", fact: "right" },
-                {content: "Spiderman", fact: "wrong" },
-                {content: "Packman", fact: "wrong" },
+                {content: "Superman", fact: false },
+                {content: "Batman", fact: true },
+                {content: "Spiderman", fact: false },
+                {content: "Packman", fact: false },
             ],
-            ImgSrc: "assets/images/Q6.gif"
+            imgSrc: "assets/images/Q6.gif"
         }, 
         { 
             Q: "7.  Sam is the intended vessel of what Biblical figure?",
             A: [
-                {content: "Michael", fact: "wrong" },
-                {content: "Gabriel", fact: "wrong" },
-                {content: "Lucifer", fact: "right" },
-                {content: "God himself", fact: "wrong" },
+                {content: "Michael", fact: false },
+                {content: "Gabriel", fact: false },
+                {content: "Lucifer", fact:true },
+                {content: "God himself", fact: false },
             ],
-            ImgSrc: "assets/images/Q7.gif"
+            imgSrc: "assets/images/Q7.gif"
         },      
         { 
             Q: "8.  What does Dean call their car?",
             A: [
-                {content: "Bae", fact: "wrong" },
-                {content: "Babe", fact: "wrong" },
-                {content: "Baby", fact: "right" },
-                {content: "Sweetie", fact: "wrong" },
+                {content: "Bae", fact: false },
+                {content: "Babe", fact: false },
+                {content: "Baby", fact:true },
+                {content: "Sweetie", fact: false },
             ],
-            ImgSrc: "assets/images/Q8.gif"
+            imgSrc: "assets/images/Q8.gif"
         },      
         { 
             Q: "9.  Which town does Bobby Singer live nearby?",
             A: [
-                {content: "Sioux Falls", fact: "right" },
-                {content: "Niagara Falls", fact: "wrong" },
-                {content: "Free Falls", fact: "wrong" },
-                {content: "Everything Falls", fact: "wrong" },
+                {content: "Sioux Falls", fact: true },
+                {content: "Niagara Falls", fact: false },
+                {content: "Free Falls", fact: false },
+                {content: "Everything Falls", fact: false },
             ],
-            ImgSrc: "assets/images/Q9.gif"
+            imgSrc: "assets/images/Q9.gif"
         },      
         { 
             Q: "10. Who serves as the human vessel for Castiel and what is his profession?",
             A: [
-                {content: "Joseph Christian-Daddy", fact: "wrong" },
-                {content: "Jimmy Novak-Accountant", fact: "right" },
-                {content: "Jeremy Noah-Singer", fact: "wrong" },
-                {content: "John Wick-Doglover", fact: "wrong" },
+                {content: "Joseph Christian-Daddy", fact: false },
+                {content: "Jimmy Novak-Accountant", fact: true },
+                {content: "Jeremy Noah-Singer", fact: false },
+                {content: "John Wick-Doglover", fact: false },
             ],
-            ImgSrc: "assets/images/Q10.gif"
+            imgSrc: "assets/images/Q10.gif"
         }       
     ]
     var intervalID;
@@ -147,7 +147,7 @@ $(document).ready(function(){
         $(".pics").attr("src", imagesource);    
     };
     var displayCorrectChoice = function(){
-        var correctAnswer = $("li[data-fact='right']");
+        var correctAnswer = $("li[data-fact=true]");
         $(".correctA").text(`The correct answer is: ${correctAnswer.attr("data-content")}`) 
     };
     var onRunOutTime = function(){
@@ -181,7 +181,7 @@ $(document).ready(function(){
     var askNewQuestion = function(i){
         var q = sets[i];
         $(".question").html(`<span>${q.Q}</span>`);
-        $(".quiz").attr("data-source",q.ImgSrc);
+        $(".quiz").attr("data-source",q.imgSrc);
         var answerList = $("ul").children();
         for (var i = 0; i < 4; i++){
             answerList.eq(i).text(q.A[i].content);
@@ -247,7 +247,7 @@ $(document).ready(function(){
     $(".options").on("click","li", function(){    
         if(timerRunning){
             onChoose();
-            if($(this).attr("data-fact") === "right"){
+            if($(this).attr("data-fact")){
                 onRightAnswer();
             } else {
                 onWrongAnswer();
