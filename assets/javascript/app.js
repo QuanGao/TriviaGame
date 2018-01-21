@@ -216,7 +216,6 @@ $(document).ready(function(){
         restartButton.text("Start Over?");
         $(".score").append(restartButton);
         $(".startOver").on("click",function(){
-            console.log("startover clicked");
             restart();});
     };
     var onComplete = function(){
