@@ -66,7 +66,7 @@ $(document).ready(function(){
             A: [
                 {content: "Michael", fact: false },
                 {content: "Gabriel", fact: false },
-                {content: "Lucifer", fact:true },
+                {content: "Lucifer", fact: true },
                 {content: "God himself", fact: false },
             ],
             imgSrc: "assets/images/Q7.gif"
@@ -246,7 +246,7 @@ $(document).ready(function(){
     $(".options").on("click","li", function(){    
         if(timerRunning){
             onChoose();
-            if($(this).attr("data-fact")){
+            if($(this).attr("data-fact") == "true"){
                 onRightAnswer();
             } else {
                 onWrongAnswer();
