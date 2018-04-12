@@ -1,4 +1,4 @@
-# [Supernatural TriviaGame](https://quangao.github.io/TriviaGame/)
+# [Supernatural Trivia Game](https://quangao.github.io/TriviaGame/)
 
 ### _This trivia game is based on the TV show "Supernatural" :ghost:_
 
